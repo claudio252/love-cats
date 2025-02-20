@@ -1,0 +1,5 @@
+<div class="w-full flex flex-col gap-1">
+    <ng-container *ngIf="mostVotedCats$ | async as mostVotedCats">
+        <app-list-item *ngFor="let cat of mostVotedCats" [id]="cat.id" [tags]="cat.tags" [votes]="cat.votes"></app-list-item>
+    </ng-container>
+</div>

@@ -1,0 +1,10 @@
+<div class="p-6 max-w-3xl mx-auto space-y-6">
+    <h1 class="text-3xl font-bold text-center">Vote for Your Favorite Cat!</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <ng-container *ngIf="cats$ | async as cats">
+            <app-card *ngFor="let cat of cats" [image]="cat.image" [votes]="cat.votes" (onVote)="vote(cat)"></app-card>
+        </ng-container>
+    </div>
+    <h2 class="text-2xl font-bold text-center mt-6">Most voted cats</h2>
+    <app-list></app-list>
+</div>
