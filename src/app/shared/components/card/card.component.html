@@ -1,6 +1,6 @@
 <div class="p-4 text-center shadow-lg">
-    <img src="{{ image }}" alt="{{ name }}" class="rounded-xl w-full" />
-    <h2 class="mt-2 text-xl font-semibold">{{ name }}</h2>
-    <p class="text-gray-600">Votes: {{ votes }}</p>
-    <app-button [text]="'Vote'" (click)="voteHandler.emit()"></app-button>
+  <img src="{{ image }}" alt="{{ name }}" class="rounded-xl w-full" />
+  <h2 class="mt-2 text-xl font-semibold">{{ name }}</h2>
+  <p class="text-gray-600">Votes: {{ votes }}</p>
+  <app-button [text]="'Vote'" (click)="voteHandler.emit()"></app-button>
 </div>

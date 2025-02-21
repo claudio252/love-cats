@@ -18,7 +18,7 @@ export const routes: Routes = [
     path: '',
     loadComponent: () =>
       import('./shared/layouts/blank/blank.component').then(
-        (m) => m.BlankComponent
+        (m) => m.BlankComponent,
       ),
     children: [
       {
@@ -32,7 +32,7 @@ export const routes: Routes = [
     path: '',
     loadComponent: () =>
       import('./shared/layouts/main/main.component').then(
-        (m) => m.MainComponent
+        (m) => m.MainComponent,
       ),
     children: votingRoutes,
   },

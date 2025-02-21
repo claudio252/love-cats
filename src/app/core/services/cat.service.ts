@@ -5,7 +5,7 @@ import { Cat, Count, initialState, VotingMap } from 'src/app/shared/model/cat';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CatService {
   mostVotedList: BehaviorSubject<Cat[]>;
@@ -13,7 +13,9 @@ export class CatService {
 
   constructor(private httpClient: HttpClient) {
     // We need to initialize local storage
-    const data: VotingMap = JSON.parse(localStorage.getItem('data') || JSON.stringify(initialState));
+    const data: VotingMap = JSON.parse(
+      localStorage.getItem('data') || JSON.stringify(initialState),
+    );
 
     if (Object.keys(data).length === 0) {
       localStorage.setItem('data', JSON.stringify(initialState));
@@ -27,21 +29,25 @@ export class CatService {
   getAll(): Observable<Cat[]> {
     return this.getCount().pipe(
       switchMap((countResponse: Count) => {
-        const skip = Math.floor((Math.random() * countResponse.count) + 1);
-        return this.httpClient.get<Cat[]>(`${environment.apiUrl}cats?limit=${environment.maxResults}&skip=${skip}`).pipe(
-          map((response) => {
-            return response.map((cat: Cat) => {
-              const localCat: Cat | null = this.doesCatAlreadyExists(cat.id);
-              return {
-                ...cat,
-                image: `${environment.baseUrl}cat/${cat.id}`,
-                votes: localCat ? localCat.votes : 0 
-              }
-            });
-          })
-        )
-      })
-    )
+        const skip = Math.floor(Math.random() * countResponse.count + 1);
+        return this.httpClient
+          .get<
+            Cat[]
+          >(`${environment.apiUrl}cats?limit=${environment.maxResults}&skip=${skip}`)
+          .pipe(
+            map((response) => {
+              return response.map((cat: Cat) => {
+                const localCat: Cat | null = this.doesCatAlreadyExists(cat.id);
+                return {
+                  ...cat,
+                  image: `${environment.baseUrl}cat/${cat.id}`,
+                  votes: localCat ? localCat.votes : 0,
+                };
+              });
+            }),
+          );
+      }),
+    );
   }
 
   voteById(id: string, cat: Cat) {
@@ -63,12 +69,12 @@ export class CatService {
   }
 
   private getCount(): Observable<Count> {
-    return this.httpClient.get<Count>(`${environment.apiUrl}count`)
+    return this.httpClient.get<Count>(`${environment.apiUrl}count`);
   }
 
   private doesCatAlreadyExists(id: string): Cat | null {
     const data: VotingMap = JSON.parse(localStorage.getItem('data') || '{}');
-    
+
     return data[id];
   }
 }

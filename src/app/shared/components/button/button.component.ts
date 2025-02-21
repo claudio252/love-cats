@@ -6,15 +6,12 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [
-    CommonModule,
-    FontAwesomeModule
-  ],
+  imports: [CommonModule, FontAwesomeModule],
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+  styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-  @Input() text !: string;
+  @Input() text!: string;
 
   faLike = faThumbsUp;
 }

@@ -4,9 +4,7 @@ export const routes: Routes = [
   {
     path: 'portal',
     loadComponent: () =>
-      import('./portal/portal.component').then(
-        (m) => m.PortalComponent
-      ),
+      import('./portal/portal.component').then((m) => m.PortalComponent),
   },
   {
     path: '',

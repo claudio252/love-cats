@@ -5,7 +5,7 @@ export const routes: Routes = [
     path: '404',
     loadComponent: () =>
       import('./not-found/not-found.component').then(
-        (m) => m.NotFoundComponent
+        (m) => m.NotFoundComponent,
       ),
   },
 ];

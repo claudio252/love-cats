@@ -1,7 +1,12 @@
 <div class="flex flex-row gap-4 py-4 px-4 border border-gray-300 rounded-xl">
-    <img src="https://cataas.com/cat/{{ id }}?type=xsmall&fit=contain&position=center&height=100" alt=""/>
-    <div class="flex flex-col">
-        <span *ngIf="tags.length">Tags: {{ tags }}</span>
-        <span>Votes: {{ votes }}</span>
-    </div>
+  <img
+    src="https://cataas.com/cat/{{
+      id
+    }}?type=xsmall&fit=contain&position=center&height=100"
+    alt=""
+  />
+  <div class="flex flex-col">
+    <span *ngIf="tags.length">Tags: {{ tags }}</span>
+    <span>Votes: {{ votes }}</span>
+  </div>
 </div>

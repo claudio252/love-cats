@@ -6,10 +6,10 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './list-item.component.html',
-  styleUrls: ['./list-item.component.scss']
+  styleUrls: ['./list-item.component.scss'],
 })
 export class ListItemComponent {
-  @Input() id !: string;
-  @Input() tags !: string[];
-  @Input() votes !: number;
+  @Input() id!: string;
+  @Input() tags!: string[];
+  @Input() votes!: number;
 }
