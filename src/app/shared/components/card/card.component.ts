@@ -16,5 +16,5 @@ export class CardComponent {
   @Input() image !: string;
   @Input() name !: string;
   @Input() votes !: number;
-  @Output() onVote = new EventEmitter();
+  @Output() voteHandler = new EventEmitter();
 }

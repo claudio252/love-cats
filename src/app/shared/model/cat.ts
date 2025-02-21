@@ -11,8 +11,6 @@ export interface Count {
   count: number;
 }
 
-export interface VotingMap {
-  [key: string]: Cat;
-}
+export type VotingMap = Record<string, Cat>;
 
 export const initialState: VotingMap = {};

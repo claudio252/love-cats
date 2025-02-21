@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, map, Observable, ReplaySubject, switchMap } from 'rxjs';
+import { BehaviorSubject, map, Observable, switchMap } from 'rxjs';
 import { Cat, Count, initialState, VotingMap } from 'src/app/shared/model/cat';
 import { environment } from 'src/environments/environment';
 
@@ -24,7 +24,7 @@ export class CatService {
     this.updateMostVoteCats();
   }
 
-  getAll(tags: string[] = []): Observable<Cat[]> {
+  getAll(): Observable<Cat[]> {
     return this.getCount().pipe(
       switchMap((countResponse: Count) => {
         const skip = Math.floor((Math.random() * countResponse.count) + 1);
